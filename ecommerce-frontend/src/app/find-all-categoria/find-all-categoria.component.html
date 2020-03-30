@@ -1,0 +1,22 @@
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mb-5 mt-5 d-flex justify-content-center align-items-center">
+            <div class="card mb-5 mr-4 ml-4" style="width: 18rem;" *ngFor="let categoria of listaCategorias">
+                <div class="card-body">
+                  <h5 class="card-title">{{ categoria.descricao }}</h5>
+                  <p class="card-text">Código: {{ categoria.id }}</p>
+                  <a href="#" class="btn btn-primary" [routerLink]="['/postCategorias', categoria.id]">Editar</a>
+                  
+                </div>
+              </div>
+        </div>
+    </div>  
+    </div>
+    
+    
+    
+    

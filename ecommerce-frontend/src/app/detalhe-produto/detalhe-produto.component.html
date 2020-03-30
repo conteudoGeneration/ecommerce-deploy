@@ -1,0 +1,28 @@
+<div class="container">
+
+    <h1 class="mt-5 mb-5">Detalhes do produto</h1>
+    <div class="row mb-5 d-flex align-items-center">
+        
+        <div class="col-md-3">
+            <img class="img-fluid " src="{{ produto.urlImagem }}" alt="imagem do {{produto.nome}}">
+        </div>
+
+        <div class="col-md-9">
+            <h5 class="">{{ produto.nome }}</h5>
+            <p class="">Qtd Estoque: {{ produto.qtdStoque }}</p>
+            <p class="">R$ {{ produto.valor }}</p>
+            <p class="">Categoria: {{ descricao }}</p>
+
+            <div *ngIf = "logado == 'logado'">
+                <a class="btn btn-outline-success" [routerLink]="['/compra', produto.id]">Comprar</a>
+              </div>
+
+              <div *ngIf = "logado == 'deslogado'">
+                <a class="btn btn-outline-success" routerLink="/login">Comprar</a>
+        </div>
+
+      
+    </div>
+
+</div>
+

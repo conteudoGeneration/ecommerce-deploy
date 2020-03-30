@@ -1,0 +1,79 @@
+<div class="container mb-5">
+
+    <h1 class="mt-4 mb-5 text-center">Carrinho de compras</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-3 d-flex justify-content-center">
+            <h3>Produto</h3>
+        </div>
+        <div class="col-md-3 d-flex justify-content-center">
+            <h3>Categoria</h3>
+        </div>
+        <div class="col-md-3 d-flex justify-content-center">
+            <h3>Preço</h3>
+        </div>
+        <div class="col-md-3 d-flex justify-content-center">
+            <h3>Quatidade</h3>
+        </div>
+    </div>
+    <hr>
+    <div class="row ">
+        <div class="col-md-3 d-flex justify-content-center">
+            <p>{{ produto.nome }}</p>
+        </div>
+        <div class="col-md-3 d-flex justify-content-center">
+            <p>{{ descricao }}</p>
+        </div>
+        <div class="col-md-3 d-flex justify-content-center">
+            <p>R$ {{ produto.valor }}</p>
+        </div>
+
+        <div class="col-md-3 d-flex justify-content-center">
+           
+                <button class="btn btn-outline-danger" (click)="sub()"><fa-icon [icon]="faMinus" class="faMinus fa-1x"></fa-icon>  </button>
+                <input type="text" class="form-control w-25 mr-1 ml-1 text-center" [(ngModel)] = "numero">
+                <button class="btn btn-outline-success" (click)="somar()"> <fa-icon [icon]="faPlus" class="faPlus fa-1x"></fa-icon> </button>
+        </div>
+     
+    </div>
+    <hr>
+    <div class="row d-flex justify-content-end">
+        <div class="col-md-3 d-flex justify-content-center">
+            <p>Valor a pagar: R$ {{valor}}</p>
+        </div>
+    </div>
+    
+    <div class="row mb-5 d-flex justify-content-end">
+        <div class="col-md-3 d-flex justify-content-center">
+            
+            <button class="btn btn-outline-success" data-toggle="modal" data-target="#finalizarcompra">Finalizar Compra</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="finalizarcompra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Compra realizada com sucesso!</h5>
+          <button type="button" class="close" data-dismiss="modal" routerLink="/produtos" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <h5 class="">{{ produto.nome }}</h5>
+            <p class="">Valor unitário: R$ {{produto.valor}}</p>
+            <h6 class="">Você comprou {{ numero }} unidades do produto: {{produto.nome}}</h6>
+            <p class="">Valor da compra: R$ {{ valor }},00</p>
+            
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-success" data-dismiss="modal" routerLink="/produtos">Finalizar</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>

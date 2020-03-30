@@ -1,0 +1,166 @@
+<div *ngIf = "logado == 'deslogado'">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+          <a routerLink="/home" class="navbar-brand ">
+            <img src="../../assets/img/logo.png" width="100" alt="logo">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+              <ul class="navbar-nav ml-5">
+        
+                <li class="nav-item active">
+                  <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/home">Home <span class="sr-only">(página atual)</span></a>
+                </li>
+        
+                <li class="nav-item">
+                  <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/about">About</a>
+                </li>
+        
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/contact">Contact</a>
+                </li>
+  
+                  <li class="nav-item active">
+                    <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/produtos">Produtos</a>
+                  </li>
+
+              </ul>
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active ml-5">
+                      <a class="nav-link text-uppercase font-weight-bold btn btn-outline-dark" routerLink="/login">Login</a>
+                    </li>
+      
+                    <li class="nav-item active ml-auto">
+                      <a class="nav-link text-dark font-weight-bold" routerLink="/cadastrese">Cadastre-se</a>
+                    </li>
+                  </ul>
+              
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+<div *ngIf = "logado == 'logado vendedor'">
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+          <a routerLink="/home" class="navbar-brand">
+            <img src="../../assets/img/logo.png" width="100" alt="logo">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+              <ul class="navbar-nav ml-5">
+                                
+                <li class="nav-item active">
+                  <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/home">Home <span class="sr-only">(página atual)</span></a>
+                </li>
+        
+                <li class="nav-item">
+                  <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/about">About</a>
+                </li>
+        
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/contact">Contact</a>
+                  </li>
+        
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark text-uppercase font-weight-bold" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Produtos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" routerLink="/postProdutos">Cadastrar</a>
+                      <a class="dropdown-item" routerLink="/produtos">Ver todos</a>
+                    </div>
+                  </li>
+        
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark text-uppercase font-weight-bold" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Categorias
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" [routerLink]="['/postCategorias']">Cadastrar</a>
+                      <a class="dropdown-item" routerLink="/categorias">Ver Todas</a>
+                      <a class="dropdown-item" routerLink="/findByNameCategoria">Procurar pelo nome</a>
+                    </div>
+                  </li>
+
+              </ul>
+                  
+              <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item active d-flex align-items-center">
+                  <p class="text-dark p-0 m-0">Olá, {{nome}}</p>
+                </li>
+
+                <li class="nav-item active ml-5">
+                  <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/login" (click)="logout()">Sair</a>
+                </li>
+              </ul>
+              
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+<div *ngIf = "logado == 'logado cliente'">
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+          <a routerLink="/home" class="navbar-brand">
+            <img src="../../assets/img/logo.png" width="100" alt="logo">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+              <ul class="navbar-nav ml-5">
+        
+                <li class="nav-item active">
+                  <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/home">Home <span class="sr-only">(página atual)</span></a>
+                </li>
+        
+                <li class="nav-item">
+                  <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/about">About</a>
+                </li>
+        
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/contact">Contact</a>
+                </li>
+
+                  <li class="nav-item active">
+                    <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/produtos">Produtos</a>
+                  </li>
+        
+          
+
+                <li class="nav-item">
+                  <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/compra">Carrinho</a>
+              </li>
+              </ul>
+              <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item active d-flex align-items-center">
+                  <p class="text-dark p-0 m-0">Olá, {{nome}}</p>
+                </li>
+                <li class="nav-item active ml-5">
+                  <a class="nav-link text-dark text-uppercase font-weight-bold" routerLink="/login" (click)="logout()">Sair</a>
+                </li>
+              </ul>
+              
+            </div>
+        </div>
+    </nav>
+
+</div>

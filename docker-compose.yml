@@ -1,0 +1,48 @@
+version: '3.4'
+services:
+  db:
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      TZ: America/Sao_Paulo
+      MYSQL_ROOT_PASSWORD: Admin357/
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Admin357/
+      MYSQL_DATABASE: ecommerce_db
+    ports:
+      - "3308:3306"
+    networks:
+      - generation-network
+  ecommerce-api:
+    restart: always
+    build: ./ecommerce-api
+    working_dir: /ecommerce-api
+    environment:
+      TZ: America/Sao_Paulo
+      SPRING_BOOT_ENVIRONMENT: Production
+    volumes:
+      - ./ecommerce-api:/ecommerce-api
+      - ~/.m2:/root/.m2
+    ports:
+      - "9000:8080"
+    command: mvn clean spring-boot:run
+    links:
+      - db
+    depends_on:
+      - db
+    networks:
+      - generation-network
+  frontend:
+    image: nginx
+    volumes:
+      - ./ecommerce-frontend/dist/ecommerce:/usr/share/nginx/html/
+    ports:
+      - "4200:80"
+    networks:
+      - generation-network
+networks:
+    generation-network:
+        driver: bridge

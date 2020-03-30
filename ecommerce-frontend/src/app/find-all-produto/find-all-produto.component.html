@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="mt-5 mb-5 text-center">Lista de produtos</h1>
+    
+      <div class="card-columns">
+        <div class="card" style="width: 18rem;" *ngFor="let produto of listaProdutos">
+            <img class="card-img-top img-fluid" src="{{ produto.urlImagem }}">
+            <div class="card-body ">
+              <h5 class="card-title">{{ produto.nome }}</h5>
+              <p class="card-text">Qtd Estoque: {{ produto.qtdStoque }}</p>
+              <p class="card-text font-weight-bold m-0" aria-describedby="preco">R$ {{ produto.valor }}</p>
+              <small id="preco" class="form-text m-0 text-muted mb-3">Em até 12x no cartão</small>
+              
+
+              <div *ngIf = "vendedor == 'vendedor'">
+                <a class="btn btn-outline-secondary d-flex justify-content-center" [routerLink]="['/postProdutos', produto.id]">Editar</a>
+              </div>
+
+              <div *ngIf = "vendedor == 'cliente'">
+                <a class="btn btn-outline-success d-flex justify-content-center mr-3 ml-3 mb-3" [routerLink]="['/compra', produto.id]">Comprar</a>
+                
+                <a class="btn btn-outline-info d-flex justify-content-center mr-3 ml-3" [routerLink]="['/detalhes', produto.id]">Detalhes</a>
+              </div>
+
+              <div *ngIf = "vendedor == 'deslogado'">
+                <a class="btn btn-outline-success d-flex justify-content-center mr-3 ml-3 mb-3" routerLink="/login">Comprar</a>
+
+                <a class="btn btn-outline-info d-flex justify-content-center mr-3 ml-3" [routerLink]="['/detalhes', produto.id]">Detalhes</a>
+                
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+    
+ 
+</div>
+
+
+

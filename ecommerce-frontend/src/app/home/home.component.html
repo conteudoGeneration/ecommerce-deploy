@@ -1,0 +1,65 @@
+
+<p class="text-center bg-warning text-secondary text-uppercase font-weight-bold p-2 m-0">Todo o site com até 30% de desconto</p>
+
+<!--Carousel-->
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://i.imgur.com/PWsbJAC.png" alt="Primeiro Slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://i.imgur.com/kKLjcqj.png" alt="Segundo Slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://i.imgur.com/ozo0WQy.png" alt="Terceiro Slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://i.imgur.com/1eO90UV.png" alt="Terceiro Slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://i.imgur.com/p78gc1G.png" alt="Terceiro Slide">
+    </div>
+  </div>
+
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Próximo</span>
+  </a>
+</div>
+
+<h2 class="text-center bg-secondary text-white text-uppercase font-weight-bold p-4 mb-3">Eletrônicos com o melhor preço do mercado</h2>
+
+<div class="row" >
+  <div class="col-md-12 d-flex justify-content-center" >
+    <a class="pointer p-3 mr-3 ml-3 text-secondary text-uppercase font-weight-bold" 
+    (click)="findByIdCategoria(categoria.id)" *ngFor="let categoria of listaCategorias"> 
+      {{ categoria.descricao }} 
+    </a> 
+    <a class="pointer p-3 mr-3 ml-3 text-success text-uppercase font-weight-bold" (click)="findByIdCategoria(0)">todos</a>
+  </div>
+</div>
+
+<hr>
+
+<div class="container">
+
+  <div class="card-columns">
+    <div class="card" style="width: 18rem;" *ngFor="let produtos of produtosCategoria">
+      <img class="card-img-top" src="{{ produtos.urlImagem }}" alt="Imagem de capa do card">
+      <hr>
+      <div class="card-body">
+        <h5 class="card-title">{{ produtos.nome }}</h5>
+        <p class="card-text">Qtd Estoque: {{ produtos.qtdStoque }}</p>
+        <p class="card-text font-weight-bold m-0" aria-describedby="preco">R$ {{ produtos.valor }}</p>
+        <small id="preco" class="form-text m-0 text-muted">Em até 12x no cartão</small>
+        <a class="btn btn-outline-info d-flex justify-content-center mr-3 ml-3 mt-3" [routerLink]="['/detalhes', produtos.id]">Detalhes</a>
+        
+      </div>
+    </div>
+    </div>
+</div>
