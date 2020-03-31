@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("vendedor", this.userLogin.vendedor.toString())
       localStorage.setItem("nome", this.userLogin.nome)
       this.router.navigate(['/produtos'])
-      location.assign('/produtos')     
+      location.assign('')     
     }, err =>{
       alert('campos inválidos')
     }
